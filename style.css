@@ -357,3 +357,118 @@ nav .links li:hover {
     opacity: 0.2;
   }
 }
+
+/* Main Section */
+
+.main {
+  grid-column: content-start/content-end;
+  grid-row: stat-end/bottom;
+  margin-bottom: 5rem;
+  padding-bottom: 1rem;
+}
+
+.main .content h3 {
+  padding-bottom: 2rem;
+  font-weight: 700;
+}
+
+.main .content p {
+  padding-bottom: 2rem;
+  line-height: 1.5rem;
+}
+
+.card {
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--Light-gray);
+  padding: 1.75rem;
+  border-radius: 5px;
+}
+
+.card .top-area {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card .top-area p {
+  color: var(--Moderate-cyan);
+  font-weight: 500;
+}
+
+.card .mid-area {
+  min-height: 7rem;
+}
+
+.card .mid-area p {
+  line-height: 1.5rem;
+  padding: 1.25rem 0;
+}
+
+.card .bottom-area {
+  display: flex;
+  justify-content: space-between;
+}
+
+.space-left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.space-left p {
+  padding-top: 3px;
+  padding-left: 5px;
+}
+
+.card-disabled {
+  opacity: 0.5;
+}
+
+.btn-disabled {
+  background-color: var(--Dark-gray);
+}
+
+.btn-disabled:hover {
+  cursor: not-allowed;
+  background-color: var(--Dark-gray);
+}
+
+@media (max-width: 700px) {
+  .card {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .card .top-area {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card .top-area p {
+    padding-top: 1rem;
+  }
+
+  .card .top-area h3 {
+    font-size: 1.05rem;
+  }
+
+  .card .bottom-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .space-left {
+    margin-bottom: 1rem;
+  }
+
+  .space-left h1 {
+    font-size: 2rem;
+  }
+
+  .space-left p {
+    padding-top: 3px;
+    padding-left: 10px;
+  }
+
+  .card .bottom-area li {
+    padding: 16px 2rem;
+  }
+}
