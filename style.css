@@ -472,3 +472,285 @@ nav .links li:hover {
     padding: 16px 2rem;
   }
 }
+
+
+/*Modal design*/
+
+.modal {
+  z-index: 2;
+  grid-column: content-start/content-end;
+  grid-row: bookmark-start/bookmark-end;
+  display: none;
+}
+
+.modal .modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal #modal-close:hover {
+  cursor: pointer;
+}
+
+.modal-content p {
+  padding: 1.5rem 0 2rem;
+}
+
+.modal-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--Light-gray);
+  border-radius: 5px;
+}
+
+#modal-card-1 .modal-card-bottom {
+  display: none;
+}
+
+#modal-card-2 .modal-card-bottom {
+  display: none;
+}
+
+#modal-card-3 .modal-card-bottom {
+  display: none;
+}
+
+#modal-card-4 .modal-card-bottom {
+  display: none;
+}
+
+.modal-card-top {
+  display: flex;
+  padding: 1.5rem 1.75rem 0;
+}
+
+.modal-card-top .radio {
+  margin-right: 1rem;
+  padding-top: 0.25rem;
+  width: 10%;
+}
+
+.modal-card-top .radio input {
+  width: 100%;
+  height: 1.25rem;
+}
+
+.modal-card-top .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-card-top .top .amount {
+  font-weight: 500;
+  color: var(--Moderate-cyan);
+  margin-right: auto;
+  margin-left: 15px;
+}
+
+.modal-card-top .bot {
+  min-height: 7rem;
+}
+
+.modal-card-top .bot p {
+  line-height: 1.5rem;
+  padding: 1.25rem 0;
+}
+
+.modal-card .media-bot {
+  display: none;
+}
+
+.modal-card .media-space-left {
+  display: none;
+}
+
+.modal-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.75rem;
+  border-top: 1px solid var(--Light-gray);
+}
+
+.modal-card-bottom .pledge-area {
+  width: 49%;
+}
+
+.modal-card-bottom p {
+  outline: none;
+  resize: none;
+  border: none;
+  font-size: 0.95rem;
+  width: 100%;
+  height: auto;
+  margin-top: 16px;
+  font-family: inherit;
+}
+
+.modal-card-bottom .pledge-submit {
+  display: flex;
+  align-items: center;
+}
+
+.modal-card-bottom .money {
+  color: var(--Light-gray);
+}
+
+.modal-card-bottom span {
+  color: black;
+  padding: 0.5rem;
+}
+
+.btn-modal {
+  padding: 18px 28px;
+}
+
+.btn-money {
+  margin-right: 12px;
+  color: black;
+  border: 1px solid var(--Light-gray);
+  background-color: transparent;
+  padding: 18px 32px 18px 28px;
+}
+
+.btn-money:hover {
+  background-color: transparent;
+}
+
+@media (max-width: 700px) {
+  .modal-card {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-card-top {
+    align-items: center;
+    padding: 1.5rem 1.5rem 0;
+  }
+
+  .modal-card-top .radio {
+    margin-right: 0;
+    padding-top: 0;
+    flex-basis: 15%;
+  }
+
+  .modal-card-top .radio input {
+    width: 20px;
+  }
+
+  .modal-card-top .top {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 0;
+  }
+
+  .modal-card-top .top .amount {
+    margin: 0;
+    padding-top: 5px;
+  }
+
+  .modal-card-top .top .space-left {
+    display: none;
+  }
+
+  .modal-card .media-bot {
+    padding: 1.5rem 1.5rem;
+    display: flex;
+  }
+
+  .modal-card .media-bot p {
+    line-height: 1.75rem;
+  }
+
+  .modal-card .media-space-left {
+    display: flex;
+    padding-left: 1.75rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .modal-card .media-space-left h1 {
+    font-size: 1.5rem;
+  }
+
+  .modal-card .media-space-left p {
+    padding-top: 5px;
+    padding-left: 5px;
+  }
+
+  .modal-card-top .bot {
+    display: none;
+  }
+
+  .modal-card-bottom {
+    flex-direction: column;
+    padding: 2rem 1.75rem 1.5rem;
+  }
+
+  .modal-card-bottom .pledge-area {
+    width: 100%;
+  }
+
+  .modal-card-bottom textarea {
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+  }
+
+  .modal-card-bottom .pledge-submit {
+    justify-content: space-between;
+  }
+
+  .modal-card-bottom span {
+    padding: 0;
+    padding-left: 0.5rem;
+  }
+
+  .btn-modal {
+    padding: 18px 28px;
+  }
+
+  .btn-money {
+    margin-right: 0;
+    padding: 18px 28px 18px 28px;
+  }
+}
+
+/*Success Message*/
+
+.success {
+  z-index: 10;
+  position: absolute;
+  top: 60%;
+  top: max(26rem, 30vw);
+  width: max(38vw, 30rem);
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.success .mid {
+  padding: 2rem 0;
+}
+
+.success .mid h2 {
+  margin-bottom: 1rem;
+}
+
+.success .mid p {
+  line-height: 1.75rem;
+}
+
+@media (max-width: 700px) {
+  .success {
+    width: max(90vw, 19rem);
+    top: calc(6rem + max(6rem, 8vw));
+  }
+}
