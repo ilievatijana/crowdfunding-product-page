@@ -238,6 +238,10 @@ nav .links li:hover {
   cursor: pointer;
 }
 
+.bookmarked {
+  filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
+}
+
 .project-card .select li:hover {
   cursor: pointer;
 }
@@ -305,25 +309,15 @@ nav .links li:hover {
 }
 
 .stats-card .bar {
-  display: flex;
   padding-top: 2rem;
-  width: 100%;
 }
 
-.stats-card .bar .hr1 {
-  width: 80%;
+.stats-card .bar .progress {
+  flex-grow: 10;
   background-color: var(--Moderate-cyan);
   height: 10px;
-  border: none;
   border-radius: 10px;
-}
-
-.stats-card .bar .hr2 {
-  width: 20%;
-  background-color: #f5f5f5;
-  height: 10px;
-  border: none;
-  border-radius: 0 10px 10px 0;
+  transition: width 0.5s ease-in-out;
 }
 
 @media (max-width: 700px) {
@@ -522,6 +516,11 @@ nav .links li:hover {
   display: none;
 }
 
+.modal-card-content h3:hover {
+  color: var(--Moderate-cyan);
+  cursor: pointer;
+}
+
 .modal-card-top {
   display: flex;
   padding: 1.5rem 1.75rem 0;
@@ -531,6 +530,7 @@ nav .links li:hover {
   margin-right: 1rem;
   padding-top: 0.25rem;
   width: 10%;
+  
 }
 
 .modal-card-top .radio input {
@@ -616,6 +616,12 @@ nav .links li:hover {
   padding: 18px 32px 18px 28px;
 }
 
+.money input[type="number"] {
+  border: none;
+  outline: none;
+  width: 40px;
+}
+
 .btn-money:hover {
   background-color: transparent;
 }
@@ -692,9 +698,11 @@ nav .links li:hover {
 
   .modal-card-bottom .pledge-area {
     width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
   }
 
-  .modal-card-bottom textarea {
+  .modal-card-bottom p {
     width: 100%;
     height: auto;
     margin-top: 0;
@@ -734,6 +742,8 @@ nav .links li:hover {
   align-items: center;
   text-align: center;
   border-radius: 10px;
+  filter: none !important; 
+  opacity: 1 !important;   
 }
 
 .success .mid {

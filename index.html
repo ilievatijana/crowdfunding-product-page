@@ -51,12 +51,12 @@
     <section class="stats-card">
         <div class="stats">
         <div class="each-stat">
-            <h1 class="top">$89,914 </h1>
+            <h1 class="top" id="total-money-raised">$89,914 </h1>
             <p class="bot"> of $100,000 backed</p>
         </div>
         <div class="vert-line1"></div>
         <div class="each-stat">
-            <h1 class="top">5,007</h1>
+            <h1 class="top" id="total-backers">5,007</h1>
             <p class="bot">total backers</p>
         </div>
         <div class="vert-line2"></div>
@@ -66,8 +66,7 @@
         </div>
         </div>
         <div class="bar">
-        <hr class="hr1">
-        <hr class="hr2">
+            <div class="progress" id="progressBar"></div>
         </div>
     </section>
 
@@ -87,7 +86,7 @@
           </div>
           <div class="bottom-area">
             <div class="space-left">
-              <h1 class="count">101</h1>
+              <h1 class="count" id="available-count">101</h1>
               <p>left</p>
             </div>
             <li class="btn reward-btn">Select Reward</li>
@@ -162,10 +161,10 @@
           </div>
           <div class="modal-card-bottom">
             <div class="pledge-area">
-              <p name="pledge1" id="pledge1">Enter your pledge</p>
+              <p name="pledge1" id="pledge1"></p>
             </div>
             <div class="pledge-submit">
-              <div class="money btn-money btn">$ <span>0</span></div>
+              
               <div class="btn-modal btn submit-button">Continue</div>
             </div>
           </div>
@@ -202,7 +201,9 @@
               <p name="pledge2" id="pledge2">Enter your pledge</p>
             </div>
             <div class="pledge-submit">
-              <div class="money btn-money btn">$ <span>25</span></div>
+              <div class="money btn-money btn">
+                $ <input type="number" id="money-amount" value="25">
+              </div>
               <div class="btn-modal btn submit-button">Continue</div>
             </div>
           </div>
@@ -241,7 +242,9 @@
               <p name="pledge3" id="pledge3">Enter your pledge</p>
             </div>
             <div class="pledge-submit">
-              <div class="money btn-money btn">$ <span>75</span></div>
+              <div class="money btn-money btn">
+                $ <input type="number" id="money-amount" value="75">
+              </div>
               <div class="btn-modal btn submit-button">Continue</div>
             </div>
           </div>

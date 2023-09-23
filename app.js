@@ -16,31 +16,81 @@ const closeSuccessBox = document.querySelector('#success-close');
 const counter = document.querySelectorAll('.count');
 const mediaBarImg = document.querySelector('.media-bar').children[0];
 const mediaNav = document.querySelector('.media-nav');
+const bookmarkButton = document.querySelector('.bookmark');
+const moneyAmountInput = document.querySelector('#money-amount');
+const moneyAmountSpan = document.querySelector('.money.btn-money.btn span');
 let mediaSelected = false;
 let handlers = [];
+let totalBackers = 5007; 
+let currentProgress = 89914; 
+const goalAmount = 100000; 
+
 
 // Event Listeners
 mediaBarImg.addEventListener('click', mediaBarToggle);
 backProjectBtn.addEventListener('click', openModal);
 modalCloseBtn.addEventListener('click', closeModal);
+
 blockedRadio.addEventListener('click', () => {
     if (blockedRadio.checked) blockedRadio.checked = false;
 });
 
-submitButton.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
+bookmarkButton.addEventListener('click', () => {
+    // Toggle the bookmarked state
+    const bookmarkIcon = bookmarkButton.querySelector('img');
+    const bookmarkText = bookmarkButton.querySelector('li');
+
+    if (bookmarkIcon.classList.contains('bookmarked')) {
+        bookmarkIcon.classList.remove('bookmarked');
+        bookmarkText.textContent = 'Bookmark';
+    } else {
+        bookmarkIcon.classList.add('bookmarked');
+        bookmarkText.textContent = 'Bookmarked';
+    }
+});
+
+moneyAmountInput.addEventListener('input', (event) => {
+    const newAmount = event.target.value;
+    moneyAmountSpan.textContent = newAmount;
+});
+
+submitButton.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        console.log('clicked');
         toggleSuccessMsg(false);
+        const pledgeAmount = parseInt(moneyAmountSpan.textContent);
+
         if (index === 0) return;
         let card = allModalCards[index];
         let cnt = counter[index - 1].innerHTML;
         cnt--;
+        console.log(cnt);
         card.children[2].children[0].innerHTML = cnt;
         card.children[0].children[1].children[0].children[2].children[0].innerHTML = cnt;
         counter[index - 1].innerHTML = cnt;
+
+        // Update total money raised
+        const totalMoneyRaised = document.querySelector('#total-money-raised');
+        const currentMoneyRaised = parseInt(totalMoneyRaised.textContent.replace(/\D/g, ''));
+        const newMoneyRaised = currentMoneyRaised + pledgeAmount;
+        totalMoneyRaised.textContent = `$${newMoneyRaised.toLocaleString()}`;
+
+        // Update current progress
+        currentProgress += pledgeAmount;
+        updateProgressBar();
+
+        // Update total backers
+        updateBackersCount();
+
+        // Show success message
+        successBox.style.display = 'flex';
+
+        // Close the modal
+        modal.style.display = 'none';
     });
 });
-closeSuccessBox.addEventListener('click', toggleSuccessMsg.bind(true));
 
+closeSuccessBox.addEventListener('click', toggleSuccessMsg.bind(true));
 
 // Functions
 function mediaBarToggle() {
@@ -138,16 +188,10 @@ function toggleSuccessMsg(successMsgAppears) {
     if (successMsgAppears) {
         closeModal();
         successBox.style.display = 'none';
-        [...bodyChildren].forEach(element => (element.style.filter = 'initial'));
-        document.body.style.backgroundImage = 'initial';
     } else {
         closeModal();
         mediaBarImg.removeEventListener('click', mediaBarToggle);
         successBox.style.display = 'flex';
-        [...bodyChildren].forEach(element => {
-            if (element.classList.contains('success')) element.style.filter = 'initial';
-            else element.style.filter = bright;
-        });
         document.body.style.backgroundImage = lg;
         let yOffset = -150;
         let y = successBox.getBoundingClientRect().top + window.pageYOffset + yOffset;
@@ -159,8 +203,22 @@ function toggleSuccessMsg(successMsgAppears) {
     }
 }
 
+// Function to update the total backers count
+function updateBackersCount() {
+    totalBackers++;
+    const totalBackersText = document.getElementById('total-backers');
+    totalBackersText.textContent = totalBackers.toLocaleString();
+}
+
+// Function to update the progress bar
+function updateProgressBar() {
+    // Calculate the progress percentage based on your goal and current progress
+    const progressPercentage = (currentProgress / goalAmount) * 100;
+
+    // Update the width of the progress bar
+    progressBar.style.width = progressPercentage + "%";
+}
+
 // Initialization
 rewardBtnCheck(); // Initialize reward button functionality
-
-
-
+updateProgressBar(); 
